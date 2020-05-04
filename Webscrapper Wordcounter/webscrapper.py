@@ -134,9 +134,9 @@ thresh = int(sys.argv[2])
 
 page = requests.get(link)
 soup = BeautifulSoup(page.content, 'html.parser')
-with open('listfile.txt', 'w') as filehandle:
+with open('webpage.txt', 'w') as filehandle:
     filehandle.writelines("%s\n" % word for word in soup.find_all('p'))
-with open("listfile.txt","r") as file:
+with open("webpage.txt","r") as file:
     lines = file.readlines()
     for lines in lines:
         lines = lines.lower()
