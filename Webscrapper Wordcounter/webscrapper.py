@@ -23,6 +23,7 @@ class WordBST(object):
             return self.root.find(data)
         else:
             return False
+        
     #helper for delete
     def delete(self, target):
         return self.delete1(self.root, target)
@@ -118,11 +119,12 @@ class Node(object):
         else:
             return False
 
+#creates both bsts
 bst = WordBST()
 ignore = WordBST()
 
+#populates the ignore bst with data from ignore.txt 
 with open("ignore.txt","r") as ign:
-
     lines1 = ign.readlines()
     for lines1 in lines1:
         lines1 = lines1.lower()
@@ -132,11 +134,14 @@ with open("ignore.txt","r") as ign:
 link = sys.argv[1]
 thresh = int(sys.argv[2])
 
+#writes all text from website to listfile.txt
 page = requests.get(link)
 soup = BeautifulSoup(page.content, 'html.parser')
-with open('webpage.txt', 'w') as filehandle:
+with open('listfile.txt', 'w') as filehandle:
     filehandle.writelines("%s\n" % word for word in soup.find_all('p'))
-with open("webpage.txt","r") as file:
+
+#opens listfile.txt and populates bst with it if the word is not in ignore.txt   
+with open("listfile.txt","r") as file:
     lines = file.readlines()
     for lines in lines:
         lines = lines.lower()
