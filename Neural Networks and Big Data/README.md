@@ -1,0 +1,1 @@
+These two projects are the culmination of my Artifical Neural Networks class and my Computational Analysis of Big Data class. I worked on my Architecture CNN by myself and the NLP analysis of Reddit data was a group effort between myself, Ben Santos, and Silas Rhyneer.
